@@ -1,0 +1,3 @@
+Pytest test count: 34 passed
+Local commit hash: 3a098c19a959ac9adfcfe5c2dfafb8013b07e943
+Summary: Built FormFlow as a deterministic compiler over a declared process-phrase grammar. It generates approval workflow specs with cycle detection, SQLite DDL, self-contained intake and admin HTML, validation rules, notification definitions, fictional fixtures, and append-only CLI audit records. The parser rejects unsupported or ambiguous phrases, and the README documents the grammar and honesty boundary. The complete pytest suite passed.
