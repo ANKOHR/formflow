@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+ff-prompt.txt
+ff-launch.py
+ff-codex.log
+ff-audit.jsonl
+build/
+dist/
+*.egg-info/
