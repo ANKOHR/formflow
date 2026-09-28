@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "formflow"
+version = "0.1.0"
+description = "A deterministic, declared-grammar process-to-intake compiler demo"
+requires-python = ">=3.10"
+
+[project.scripts]
+ff = "formflow.cli:main"
+
+[tool.setuptools]
+packages = ["formflow"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
