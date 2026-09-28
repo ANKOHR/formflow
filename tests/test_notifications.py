@@ -19,4 +19,3 @@ def test_fixture_with_no_notify_phrase_invents_no_rules():
     description = "Create an intake form called Plain Request.\nInclude a required field named summary with type text.\nRequire manager approval."
     result = compile_description(description)
     assert result["notifications"]["rules"] == []
-

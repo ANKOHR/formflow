@@ -16,6 +16,17 @@ def _run(args, cwd):
     return subprocess.run([sys.executable, "-m", "formflow", *map(str, args)], cwd=cwd, env=env, text=True, capture_output=True)
 
 
+def test_cli_help_states_honesty_boundary_at_root_and_subcommand(tmp_path):
+    for arguments in (["--help"], ["compile", "--help"]):
+        result = _run(arguments, tmp_path)
+        assert result.returncode == 0
+        help_text = " ".join(result.stdout.split())
+        assert "does not use a language model" in help_text
+        assert "does not understand arbitrary English" in help_text
+        assert "synthetic" in help_text
+        assert "nothing is sent" in help_text
+
+
 def test_cli_fixtures_compile_validate_and_serve_note(tmp_path):
     fixtures_dir = tmp_path / "generated fixtures"
     result = _run(["fixtures", "--out", fixtures_dir], tmp_path)

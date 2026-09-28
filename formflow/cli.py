@@ -17,18 +17,17 @@ from .parser import HONESTY
 def _parser():
     parser = argparse.ArgumentParser(
         prog="ff",
-        description="Compile a declared set of process phrases into a review demo. No language model is used; arbitrary English is not understood.",
-        epilog=HONESTY,
+        description=HONESTY,
     )
     sub = parser.add_subparsers(dest="command", required=True)
-    fixtures = sub.add_parser("fixtures", help="generate fictional compiler fixtures")
+    fixtures = sub.add_parser("fixtures", help="generate fictional compiler fixtures", description=HONESTY)
     fixtures.add_argument("--out", required=True, help="directory for generated fixtures")
-    compile_cmd = sub.add_parser("compile", help="compile one process description")
+    compile_cmd = sub.add_parser("compile", help="compile one process description", description=HONESTY)
     compile_cmd.add_argument("description", help="UTF-8 description file")
     compile_cmd.add_argument("--out", required=True, help="directory for generated artifacts")
-    validate = sub.add_parser("validate", help="parse a description and validate its generated SQLite DDL")
+    validate = sub.add_parser("validate", help="parse a description and validate its generated SQLite DDL", description=HONESTY)
     validate.add_argument("description", help="UTF-8 description file")
-    note = sub.add_parser("serve-note", help="print local viewing instructions for generated HTML")
+    note = sub.add_parser("serve-note", help="print local viewing instructions for generated HTML", description=HONESTY)
     note.add_argument("artifact_dir", nargs="?", default=".", help="directory containing generated admin.html")
     return parser
 
